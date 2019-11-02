@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateStudyChildrenTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('study_children', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('teacher_id');
+            $table->bigInteger('study_id');
+            $table->string('title');
+            $table->string('description');
+            $table->string('image')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('study_children');
+    }
+}
